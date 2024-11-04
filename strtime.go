@@ -1,6 +1,7 @@
 package strtime
 
 import (
+	"fmt"
 	"strings"
 	"time"
 )
@@ -22,12 +23,18 @@ var defaultHooks = map[string]string{
 	"time":     "HH:mm:SS",
 	"datetime": "YYYY-MM-DD HH:mm:SS",
 	"dbdt":     "YYYYMMDD_HHmmSS",
+	"unix":     "unix",
 }
 
 func Format(format string, t time.Time) string {
 	// 1. check if the format is in the default hooks
 	if defaultFormat, ok := defaultHooks[format]; ok {
 		format = defaultFormat
+	}
+
+	if format == "unix" {
+		timestamp := t.Unix()
+		return fmt.Sprintf("%d", timestamp)
 	}
 
 	for k, v := range formatHash {
@@ -38,5 +45,5 @@ func Format(format string, t time.Time) string {
 }
 
 func Now() int64 {
-	return time.Now().Unix()
+	return time.Now().UnixNano() / int64(time.Millisecond)
 }

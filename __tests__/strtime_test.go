@@ -68,6 +68,14 @@ func TestFormat(t *testing.T) {
 	if res != "20190101_000000" {
 		t.Error("Format failed!")
 	}
+
+	// test unix
+	format = "unix"
+	res = strtime.Format(format, currentTime)
+	fmt.Println(res)
+	if res != "1546300800" {
+		t.Error("Format failed!")
+	}
 }
 
 func TestNow(t *testing.T) {
