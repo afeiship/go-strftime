@@ -1,11 +1,11 @@
-package strtime
+package strftime
 
 import (
 	"fmt"
 	"testing"
 	"time"
 
-	"github.com/afeiship/go-strtime"
+	"github.com/afeiship/go-strftime"
 )
 
 func TestFormat(t *testing.T) {
@@ -19,28 +19,28 @@ func TestFormat(t *testing.T) {
 
 	// start test date
 	format := "YYYY-MM-DD"
-	res := strtime.Format(format, currentTime)
+	res := strftime.Format(format, currentTime)
 	if res != "2019-01-01" {
 		t.Error("Format failed!")
 	}
 
 	// start test time
 	format = "HH:mm:SS"
-	res = strtime.Format(format, currentTime)
+	res = strftime.Format(format, currentTime)
 	if res != "00:00:00" {
 		t.Error("Format failed!")
 	}
 
 	// start test datetime
 	format = "YYYY-MM-DD HH:mm:SS"
-	res = strtime.Format(format, currentTime)
+	res = strftime.Format(format, currentTime)
 	if res != "2019-01-01 00:00:00" {
 		t.Error("Format failed!")
 	}
 
 	// test dateHook
 	format = "date"
-	res = strtime.Format(format, currentTime)
+	res = strftime.Format(format, currentTime)
 	if res != "2019-01-01" {
 		t.Error("Format failed!")
 	}
@@ -48,7 +48,7 @@ func TestFormat(t *testing.T) {
 	// test timeHook
 	// start test time
 	format = "time"
-	res = strtime.Format(format, currentTime)
+	res = strftime.Format(format, currentTime)
 	if res != "00:00:00" {
 		t.Error("Format failed!")
 	}
@@ -56,14 +56,14 @@ func TestFormat(t *testing.T) {
 	// test datetimeHook
 	// start test datetime
 	format = "datetime"
-	res = strtime.Format(format, currentTime)
+	res = strftime.Format(format, currentTime)
 	if res != "2019-01-01 00:00:00" {
 		t.Error("Format failed!")
 	}
 
 	// test dbHook
 	format = "dbdt"
-	res = strtime.Format(format, currentTime)
+	res = strftime.Format(format, currentTime)
 	fmt.Println(res)
 	if res != "20190101_000000" {
 		t.Error("Format failed!")
@@ -71,7 +71,7 @@ func TestFormat(t *testing.T) {
 
 	// test unix
 	format = "unix"
-	res = strtime.Format(format, currentTime)
+	res = strftime.Format(format, currentTime)
 	fmt.Println(res)
 	if res != "1546300800" {
 		t.Error("Format failed!")
@@ -80,8 +80,8 @@ func TestFormat(t *testing.T) {
 
 func TestNow(t *testing.T) {
 	// create a time : 2019-01-01 00:00:00
-	nowTs := strtime.Now()
+	nowTs := strftime.Now()
 	nowTime := time.Unix(nowTs, 0)
 	t.Log("Now time: ", nowTime)
-	t.Log("Now timestamp: ", strtime.Now())
+	t.Log("Now timestamp: ", strftime.Now())
 }

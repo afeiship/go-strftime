@@ -1,4 +1,4 @@
-package strtime
+package strftime
 
 import (
 	"fmt"

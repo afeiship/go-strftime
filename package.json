@@ -1,7 +1,10 @@
 {
-  "name": "go-strtime",
+  "name": "go-strftime",
   "private": true,
   "version": "1.0.0",
   "description": "Simple date format for golang.",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "go test -v __tests__/*.go"
+  }
 }
