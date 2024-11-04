@@ -1,0 +1,7 @@
+{
+  "name": "go-strtime",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Simple date format for golang.",
+  "license": "MIT"
+}
